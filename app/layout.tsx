@@ -32,20 +32,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfinal-nlcw0gx9a-julihabifs-projects.vercel.app'),
   title: {
-    default: "Julieta Habif Portfolio",
+    default: "Julieta Habif - Product Manager & Developer Portfolio",
     template: "%s | Julieta Habif"
   },
-  description: "Creative Portfolio of Julieta Habif - Product Manager & Developer",
-  keywords: ["Product Manager", "Developer", "Portfolio", "Next.js", "React", "Full Stack", "Web Development"],
-  authors: [{ name: "Julieta Habif" }],
+  description: "Portfolio of Julieta Habif - Product Manager & Full Stack Developer specializing in Next.js, React, and modern web technologies. Explore my projects and get in touch.",
+  keywords: [
+    "Julieta Habif",
+    "Product Manager",
+    "Developer",
+    "Portfolio",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Full Stack Developer",
+    "Web Development",
+    "Software Engineer",
+    "Frontend Developer",
+    "UI/UX"
+  ],
+  authors: [{ name: "Julieta Habif", url: "https://portfinal-nlcw0gx9a-julihabifs-projects.vercel.app" }],
   creator: "Julieta Habif",
+  publisher: "Julieta Habif",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://julietahabif.com",
-    title: "Julieta Habif Portfolio",
-    description: "Creative Portfolio of Julieta Habif - Product Manager & Developer",
+    url: "https://portfinal-nlcw0gx9a-julihabifs-projects.vercel.app",
+    title: "Julieta Habif - Product Manager & Developer Portfolio",
+    description: "Portfolio of Julieta Habif - Product Manager & Full Stack Developer specializing in Next.js, React, and modern web technologies.",
     siteName: "Julieta Habif Portfolio",
     images: [
       {
@@ -58,14 +78,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Julieta Habif Portfolio",
-    description: "Creative Portfolio of Julieta Habif - Product Manager & Developer",
+    title: "Julieta Habif - Product Manager & Developer",
+    description: "Portfolio of Julieta Habif - Product Manager & Full Stack Developer specializing in Next.js, React, and modern web technologies.",
     creator: "@julietahabif",
     images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // You'll get this from Google Search Console
   },
 };
 

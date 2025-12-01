@@ -5,10 +5,42 @@ import Contact from "@/components/sections/Contact";
 import { jobs } from "@/lib/portfolio-data";
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Julieta Habif',
+    jobTitle: 'Product Manager & Full Stack Developer',
+    description: 'Product Manager and Full Stack Developer specializing in Next.js, React, and modern web technologies',
+    url: 'https://portfinal-nlcw0gx9a-julihabifs-projects.vercel.app',
+    sameAs: [
+      'https://linkedin.com/in/julietahabif',
+      'https://github.com/julietahabif',
+      'https://twitter.com/julietahabif',
+    ],
+    knowsAbout: [
+      'Product Management',
+      'Web Development',
+      'React',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'Full Stack Development',
+      'UI/UX Design',
+    ],
+    alumniOf: {
+      '@type': 'Organization',
+      name: 'Your University', // Update with your actual university
+    },
+  };
 
   return (
-    <div className="min-h-screen relative z-10">
-      <Hero />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen relative z-10">
+        <Hero />
 
       <main id="main-content">
         <AboutMe />
@@ -30,5 +62,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
