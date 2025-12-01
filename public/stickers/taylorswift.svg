@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="12" fill="#FFE5EC"/>
+  <text x="60" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#C9184A" text-anchor="middle">Taylor</text>
+  <text x="60" y="75" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#C9184A" text-anchor="middle">Swift</text>
+  <path d="M 30 25 L 35 15 L 40 25 Z" fill="#FFB3C6"/>
+  <path d="M 80 25 L 85 15 L 90 25 Z" fill="#FFB3C6"/>
+  <path d="M 50 95 L 60 85 L 70 95 L 60 105 Z" fill="#FF006E"/>
+</svg>

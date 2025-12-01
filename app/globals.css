@@ -1,26 +1,154 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-satoshi);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+/* Glassmorphism glow effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.glow-blur {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: float 8s ease-in-out infinite;
+}
+
+.glow-blur-1 {
+  top: 10%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(62, 111, 99, 0.3) 0%, transparent 70%);
+}
+
+.glow-blur-2 {
+  top: 50%;
+  right: 20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(183, 209, 176, 0.25) 0%, transparent 70%);
+  animation-delay: 2s;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Custom Palette */
+  --mirage: #161D25;
+  --william: #3E6F63;
+  --gunsmoke: #8C9190;
+  --paleleaft: #B7D1B0;
+  --congo:#6F3F3D;
+
+  /* Shadcn Variables with Custom Palette */
+  --background: var(--paleleaft);
+  --foreground: var(--mirage);
+  --card: var(--paleleaft);
+  --card-foreground: var(--mirage);
+  --popover: var(--paleleaft);
+  --popover-foreground: var(--mirage);
+  --primary: var(--william);
+  --primary-foreground: var(--paleleaft);
+  --secondary: var(--gunsmoke);
+  --secondary-foreground: var(--mirage);
+  --muted: var(--gunsmoke);
+  --muted-foreground: var(--congo);
+  --accent: var(--congo);
+  --accent-foreground: var(--paleleaft);
+  --destructive: #ef4444;
+  --border: var(--gunsmoke);
+  --input: var(--gunsmoke);
+  --ring: var(--william);
+}
+
+.dark {
+  --background: var(--mirage);
+  --foreground: var(--paleleaft);
+  --card: var(--mirage);
+  --card-foreground: var(--paleleaft);
+  --popover: var(--mirage);
+  --popover-foreground: var(--paleleaft);
+  --primary: var(--william);
+  --primary-foreground: var(--paleleaft);
+  --secondary: #2a3942;
+  --secondary-foreground: var(--paleleaft);
+  --muted: #2a3942;
+  --muted-foreground: var(--gunsmoke);
+  --accent: var(--congo);
+  --accent-foreground: var(--paleleaft);
+  --destructive: #ef4444;
+  --border: rgba(140, 145, 144, 0.2);
+  --input: rgba(140, 145, 144, 0.2);
+  --ring: var(--william);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Focus indicators for accessibility */
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-primary ring-2 ring-primary/20;
+  }
+
+  /* Skip to main content link */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:shadow-lg;
+  }
+
+  /* Reduce motion for users with motion sensitivity */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
